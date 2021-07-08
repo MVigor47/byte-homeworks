@@ -42,18 +42,26 @@ const maxChildAge = 18;
 const minOldAge = 60;
 const maxOldAge = 80;
 const visitorAge = Number(prompt("Ваш возраст"));
-const parentsPermit = confirm("Разрешение родителей?");
 
-if (visitorAge >= maxChildAge && visitorAge <= maxOldAge){
+
+
+if (visitorAge >= maxChildAge && visitorAge <= minOldAge) {
     alert ("Вам можно");
-} else if (visitorAge >= minChildAge && visitorAge <= 80 || parentsPermit) {
-    alert ("Вам можна")
-}else {
-    alert ("Вам нельзя")
-}
+} else if (visitorAge >= minChildAge && visitorAge <= maxChildAge || visitorAge >= minOldAge && visitorAge <= maxOldAge) {
+    const parentsPermit = confirm("Разрешение родителей?");
+    if (parentsPermit == true){
+        alert ("Вам можно")
+    } else {
+        alert ("Вам нельзя")
+    }} else {
+        alert ("Вам нельзя")
+    }
 
 
-/// // } else if (visitorAge <= maxChildAge){
+
+
+
+///  // } else if (visitorAge <= maxChildAge){
 // }
 
 
