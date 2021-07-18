@@ -13,42 +13,68 @@
 
 // ЗАДАНИЕ №1
 
-  const upperCase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-  const lowerCase = 'abcdefghijklmnopqrstuvwxyz';
-  const numbers = '0123456789';
-
-  const getUpperCase=upperCase.split("");
-  console.log(`getUpperCase`, getUpperCase)
-  const getLowerCase=lowerCase.split("");
-  console.log(`getLowerCase`, getLowerCase)
-  const getNumberCase=numbers.split("");
-  console.log(`getNumberCase`, getNumberCase)
-
-
-
-
-  const  passwordEnter = () =>{
+const  passwordEnter = () =>{
   let userPassword
   let isSuccess = false
 
-  do{
-    userPassword = prompt("Enter your password");
-    if (!userPassword){
-      alert("Enter your password")
-      continue;
-    }
+  do {
+  userPassword = prompt("Введите пароль");
+  const passLength = 6;
+  if(userPassword.length < passLength){
+    alert('Меньше чем 6 символов')
+    continue
+  }
+  if (userPassword === userPassword.toUpperCase()) {
+   alert ('Введите нижний регистр');
+  }
+  if (userPassword === userPassword.toLowerCase()){
+   alert ('Введите верхний регистр');
+  }else{
+    alert('Пароль подходит')
+    isSuccess=true;
+  }
+} while(!isSuccess)
+}
 
-    if(userPassword == getUpperCase&&getLowerCase&&getNumberCase){
-      isSuccess=true;
+const upperLower = function(){
+  const name = prompt("Name")
+  let newName ="", newChar ="";
+  for (let i=0; i < name.length; i++) {
+    if (name.charAt(i) === " ") {
+      newChar = " "
+    } else if (name.charAt(i) === name.charAt(i).toUpperCase()) {
+      newChar = name.charAt(i).toLowerCase()
     } else {
-      alert("Your password is incorrect")
+      newChar = name.charAt(i).toUpperCase()
     }
-  } while(!isSuccess)
-  alert("Congrats")
+   newName += newChar;
+  }
+
+  return newName;
+}
+
+const lowerUpper = function(){
+  const surName = prompt("SurName")
+  let newSurName ="", newChar ="";
+  for (let i=0; i < surName.length; i++) {
+    if (surName.charAt(i) === " ") {
+      newChar = " "
+    } else if (surName.charAt(i) === surName.charAt(i).toUpperCase()) {
+      newChar = surName.charAt(i).toLowerCase()
+    } else {
+      newChar = surName.charAt(i).toUpperCase()
+    }
+   newSurName += newChar;
+  }
+
+  return newSurName;
 }
 
 
 
+passwordEnter()
+
+alert(`${upperLower()} ${lowerUpper()}`)
 
 
 
@@ -59,34 +85,13 @@
 
 
 
+// function ucFirst() {
+//   const name = prompt("Name")
+//   if (!name){
+//     alert("enter name")
+//   }
+//   return name[0].toUpperCase() + name.slice(1).toLowerCase;
+// }
 
 
-
-
-
-
-
-
-
-
-
-
-
-//   do {
-//     PASSWORD = prompt("Ваш пароль")
-//       if(!PASSWORD){
-//         alert("Введите пароль")
-//         continue;
-//       } if (PASSWORD == upperCase + lowerCase + numbers){
-//         isSuccess = true;
-//       } else {
-//         alert("eeee brat")
-//       }
-//   }while (!isSuccess);
-
-//   alert ("welcome");
-// 
-
-
-
-// authorize()
+// alert(ucFirst())
