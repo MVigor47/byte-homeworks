@@ -1,14 +1,34 @@
 
+
+// var secretNumber = 42,
+// youWon = false,
+// i = 0;
+
+// while (i < 3) {
+// var playerGuess = prompt("What is your guess?");
+
+// if (playerGuess == secretNumber){
+// youWon = true;
+// break;
+// }
+
+// i++;
+// }
+
+// if (youWon) {
+// alert("You got it!");
+// } else {
+// alert("Sorry, you have no more tries left.");
+// }
 const LOGIN = "ADMIN";
 const PASSWORD = "1q2w3e";
+
 
 const autorithe = () => {
     let userPassword;
     let userLogin;
     let isAuthSuccess = false;
-
-
-
+    let attempts = 3;
         do{
             userLogin = prompt("Ваш логин:")
             if(!userLogin){
@@ -25,23 +45,29 @@ const autorithe = () => {
             if (userPassword === PASSWORD || userLogin === LOGIN){
                 isAuthSuccess = true;
             }else{
-                let i = 3
-                while (i){
-                    alert(`У вас осталось попыток: ${i}`)
-                    i--;
-                    if(i--){
-                        break;
-                    }
-                }
+                attempts --
+                alert(`У вас осталось ${attempts} попыток`)
             }
-        } while (!isAuthSuccess)
+        } while ( attempts > 0 && !isAuthSuccess)
 
-        alert("Welcome")
+        if(attempts==0){
+            alert("See ya ^^")
+        }else{
+            alert("Welcome")
+        }
     }
 
 autorithe()
 
 
+
+    {
+        let i = attempts
+        while (i>0){
+            alert(`У вас осталось попыток: ${i}`)
+            i--;
+            }
+    }
 
 
 
