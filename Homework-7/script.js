@@ -24,22 +24,20 @@
 /////////////////////////////////////////////////////
 
 function timetable(){
-  
 
-  const timeTable = {
-  };
-  console.log(`timeTable`, timeTable)
-  for (;;) {
-  const time = prompt("Time")
-  if(time==null){
-    return
-  }
+const timeTable = {};
+console.log(`timeTable`, timeTable)
+  while (true) {
+    const time = prompt("Time")
+    if(time==null){
+      break
+    }
   const action = prompt("Action")
-  if(action==null){
-    return
-  }
+    if(action==null){
+      break
+    }
   timeTable[time] = action;
-}
+} return timeTable;
 
 }
 timetable()
